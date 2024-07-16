@@ -5,7 +5,7 @@ library(dplyr)
 library(EnhancedVolcano)
 library(readr)
 library(ggprism)
-
+#an example of an edit
 #load data
 Bulk_CD276KO <- read.csv("Documents/LearnR/EdgeR/GeneRenamed(in).csv", header = T, sep = ",")
 #create a DGEList

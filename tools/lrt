@@ -1,0 +1,10 @@
+#likelihood ratio test
+#genewise negative binomial glm
+fit <- glmFit(y, design)
+#perform the likelihood ratio tests
+lrt <- glmLRT(fit)
+topTags(lrt, n=20)
+
+B <- lrt[["table"]]
+B <- filter(B, PValue<0.05)
+write.csv(B, "Documents/LearnR/EdgeR/B.csv")

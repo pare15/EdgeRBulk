@@ -1,0 +1,11 @@
+#quasi-likelihood dispersion
+fit <- glmQLFit(y, design, robust=TRUE)
+head(fit$coefficients)
+plotQLDisp(fit)
+
+A <- qlf[["table"]]
+A <- filter(A, PValue<0.05)
+A
+summary(decideTests(qlf))
+#save the significant genes
+write.csv(A, "Documents/LearnR/EdgeR/A.csv")

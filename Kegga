@@ -1,0 +1,4 @@
+#pathway analysis
+#kegga() takes a DGELRT or DGEExact object
+keg <- kegga(qlf, species.KEGG = "hsa")
+topKEGG(keg, sort = "up")

@@ -1,0 +1,4 @@
+#gene ontology analysis
+# install.packages("GO.db")#‘GO.db’ is not available for this version of R
+go <- goana(lrt)
+topGO(go, ont = "BP", sort = "Up", n=30, truncate=30)

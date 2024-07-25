@@ -15,7 +15,7 @@ y <- DGEList(counts = Bulk_CD276KO[, 20:28], genes= Bulk_CD276KO[, 1:1], group =
 keep <- filterByExpr(y)#keeps rows that have worthwhile counts in a minimum number of samples
 table(keep)
 y <- y[keep, , keep.lib.sizes = FALSE]
-#make data frame to store the row names of the filtered data
+#make data frame to store the row names of the filtered data (used for extracting normalized data)
 ydat <- as.data.frame(y)
 #Normalize library sizes
 y <- normLibSizes(y)

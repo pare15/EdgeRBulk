@@ -1,0 +1,5 @@
+#MDS Plot
+colors <- c("red", "blue", "green")
+group_colors <- colors[cells]
+plotMDS(y, col = group_colors, pch = 16, main = "MDS Plot")
+legend("topright", legend = levels(cells), col = colors, pch = 16)

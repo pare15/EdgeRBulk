@@ -1,0 +1,11 @@
+#################For Extracting the Normalized Data#################
+#calculate TMM normalization factors:
+y <- calcNormFactors(y)
+#get the normalized counts:
+normalized_counts <- cpm(y, log=FALSE)
+#convert matrix to data frame
+ncdf<- as.data.frame(normalized_counts)
+#take row names of filtered data and tack onto the normalized data
+rownames(ncdf) <- ydat[,1]
+#export the data
+write.csv(ncdf, "Documents/LearnR/GSEA/FND_3.csv")

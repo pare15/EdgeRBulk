@@ -1,0 +1,6 @@
+#differential expression (quasi-likelihood F-tests) using endwise negative binomial glm
+fit <- glmQLFit(y, design)
+#perform the likelihood ratio tests, the contrast compares groups, ex.: 0xA, -1xB, 1xC
+qlf <- glmQLFTest(fit, contrast=c(1, -1, 0))
+#look at the top genes, sorting by preferred value
+topTags(qlf, n=20, adjust.method = "BH", sort.by = "PValue", p.value=1)

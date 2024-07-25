@@ -1,7 +1,18 @@
-# png(file="Documents/LearnR/EdgeRGraphs/VOL.png",
-#     height=2000,
-#     width=2300,
-#     res=300)
+#data must be changed from DGEList to dataframe with adjusted p-values
+#convert list to data frame
+data_frame_qlf <- as.data.frame(qlf)
+#pull out the p values as a numeric vector, since p.adjust cannot handle data frames
+pvalue_vector <- data_frame_qlf$PValue
+#adjust p values using the Benjamini-Hochberg procedure
+fdr <- p.adjust(pvalue_vector,"BH")
+#shaping new data frame
+voldata <- select(data_frame_qlf, genes, logFC)
+#values from the first column of voldata as the row names of voldata
+rownames(voldata) <- voldata[,1]
+#-1 means to exclude the first column, but use second argument to ensure voldata2 remains a data frame
+voldata2 <- voldata[,-1, drop = FALSE]
+#add adjusted p-values as a new column in voldata2
+voldata2$fdr <- fdr
 EnhancedVolcano(voldata2,
                 lab = rownames(voldata2),
                 x = 'logFC',
@@ -25,4 +36,4 @@ EnhancedVolcano(voldata2,
                 # gridlines.major = FALSE,
                 # gridlines.minor = FALSE
                 )
-# dev.off()
+

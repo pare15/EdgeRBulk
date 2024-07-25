@@ -1,0 +1,4 @@
+#common genes
+A_genes <- row.names(A)#common genes from QLF tests
+B_genes <- row.names(B)#common genes from LRT tests
+c <- intersect(A_genes, B_genes)#determines common genes found in both tests

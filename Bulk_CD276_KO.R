@@ -150,14 +150,5 @@ summary(decideTests(lrt))
 #Plot log-fold change against log-counts per million
 plotMD(lrt)
 abline(h=c(-1, 1), col = "blue")
-#gene ontology analysis
-# install.packages("GO.db")#‘GO.db’ is not available for this version of R
-# go <- goana(lrt)
-# topGO(go, ont = "BP", sort = "Up", n=30, truncate=30)
-#KEGG analysis - The gene ontology (GO) enrichment analysis and the KEGG pathway
-#enrichment analysis are the common downstream procedures to interpret the
-#differential expression results in a biological context.
-#Given a set of genes that are up- or down-regulated under a certain contrast of
-#interest, a GO (or pathway) enrichment analysis will find which GO terms (or
-#pathways) are over- or under-represented using annotations for the genes in that set.
+
 
